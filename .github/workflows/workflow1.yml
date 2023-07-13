@@ -1,8 +1,16 @@
-name: hello-world
+name: E2e Tests
 on: push
 jobs:
-  my-job:
+  cypress-run:
     runs-on: ubuntu-latest
     steps:
-      - name: my-step
-        run: echo "Hello World!"
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Cypress run
+        uses: cypress-io/github-action@v4.2.0
+        env:
+          DEBUG: "cypress:*"
+        with:
+          # start: npm start
+          command: npx cypress run --spec Chic-Fila\\cypress\\integration\\examples\\BDD\\cfabdd2.feature
+          # command: npx cypress run --browser chrome --spec 'cypress/e2e/**/*.feature'
