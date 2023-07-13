@@ -1,16 +1,8 @@
-name: Chrome headed
+name: hello-world
 on: push
 jobs:
-  cypress-run:
-    runs-on: ubuntu-22.04
+  my-job:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v1
-        with:
-         node-version: '12.10.0'
-      - name: Install dependencies
-        run: npm ci --legacy-peer-deps
-      - uses: cypress-io/github-action@v5
-        with:
-          browser: chrome
-          headed: true
+      - name: my-step
+        run: echo "Hello World!"
